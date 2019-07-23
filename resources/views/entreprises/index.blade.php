@@ -62,26 +62,25 @@
                 <div class="panel-body row">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
-                            <tr>
-                                <th>Numéro</th>
-                                <th>Dénomination</th>
-                                <th>Adresse</th>
-                                <th>Téléphone</th>
-                            </tr>
-                            <tr>
-                                <td>12345</td>
-                                <td>test</td>
-                                <td>1, rue du test 1234 Test</td>
-                                <td>0123456789</td>
-                            </tr>
-{{--                            @foreach($data as $row)--}}
-{{--                                <tr>--}}
-{{--                                    <td>{{ $row->numero }}</td>--}}
-{{--                                    <td>{{ $row->denomination }}</td>--}}
-{{--                                    <td>{{ $row->adresse }}</td>--}}
-{{--                                    <td>{{ $row->telephone }}</td>--}}
-{{--                                </tr>--}}
-{{--                            @endforeach--}}
+                                @if(!empty($entreprises))
+                                    <tr>
+                                        <th>Numéro</th>
+                                        <th>Dénomination</th>
+                                        <th>Adresse</th>
+                                        <th>Téléphone</th>
+                                    </tr>
+                                    @foreach($entreprises as $entreprise)
+                                        <tr>
+                                            <td>{{ $entreprise->numero }}</td>
+                                            <td>{{ $entreprise->denomination }}</td>
+                                            <td>{{ $entreprise->adresse }}</td>
+                                            <td>{{ $entreprise->telephone }}</td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <p>Pas d'entreprises disponibles</p>
+                                @endif
+
                         </table>
                     </div>
                 </div>

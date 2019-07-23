@@ -11,6 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('entreprises.index');
-});
+Route::get('/', 'EntrepriseController@index');

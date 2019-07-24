@@ -15,10 +15,10 @@ class EntreprisesImport implements ToModel
     public function model(array $row)
     {
         return new Entreprise([
-            'numero'          => $row[0],
-            'denomination'    => $row[1],
-            'adresse'         => $row[2],
-            'telephone'       => $row[3],
+            'numero'          => $row[1],
+            'denomination'    => $row[2],
+            'adresse'         => $row[3],
+            'telephone'       => $row[4],
         ]);
     }
 }

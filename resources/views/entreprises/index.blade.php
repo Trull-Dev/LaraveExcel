@@ -36,7 +36,7 @@
                     <strong>{{ $message }}</strong>
                 </div>
             @endif
-            <form method="post" enctype="multipart/form-data" action="{{ url('/import_excel/import') }}" class="row">
+            <form method="post" enctype="multipart/form-data" action="{{ url('/import') }}" class="row">
                 {{ csrf_field() }}
                 <div class="form-group m-auto">
                     <div class="d-inline-flex align-items-baseline">
@@ -46,18 +46,26 @@
                             <div class="ml-5 mr-5">
                                 <input type="file" name="select_file" />
                             </div>
-                            <div class="">
-                                <input type="submit" name="upload" class="btn btn-primary" value="Upload">
+                            <div>
+                                <input type="submit" name="importer" class="btn btn-primary" value="Importer">
                             </div>
 
                     </div>
                 </div>
             </form>
+            <hr>
 
             <br />
             <div class="panel panel-default container">
-                <div class="panel-heading row">
-                    <h3 class="panel-title align-items-center">Index des entreprises</h3>
+                <div class="row d-inline-flex align-items-center">
+                    <div class="panel-heading row mr-5">
+                        <h3 class="panel-title align-items-center">Index des entreprises</h3>
+                    </div>
+                    @if(!empty($entreprises))
+                        <div class="ml-5 mb-2">
+                            <a href="{{url('export')}}" class="btn btn-dark">Tout exporter</a>
+                        </div>
+                    @endif
                 </div>
                 <div class="panel-body row">
                     <div class="table-responsive">

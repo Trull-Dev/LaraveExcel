@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Entreprise;
+use App\Exports\EntreprisesExport;
+use App\Imports\EntreprisesImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EntrepriseController extends Controller
 {
@@ -16,6 +19,11 @@ class EntrepriseController extends Controller
     {
         $entreprises = Entreprise::all()->sortBy('created_at');
         return view('entreprises.index', compact('entreprises'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new EntreprisesExport, 'entreprises.xlsx');
     }
 
     /**

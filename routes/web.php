@@ -11,4 +11,8 @@
 |
 */
 
+//INDEX
 Route::get('/', 'EntrepriseController@index');
+
+//EXPORT
+Route::get('export', 'EntrepriseController@export')->name('export');

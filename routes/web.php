@@ -19,3 +19,6 @@ Route::get('export', 'EntrepriseController@export')->name('export');
 
 //IMPORT
 Route::post('import', 'EntrepriseController@import')->name('import');
+
+
+Route::delete('delete/{id}', 'EntrepriseController@destroy')->name('delete');

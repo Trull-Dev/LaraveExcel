@@ -100,6 +100,10 @@ class EntrepriseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Entreprise::find($id)->delete($id);
+
+        return response()->json([
+            'success' => 'Suppression réussie'
+        ]);
     }
 }

@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Excel - Import test</title>
 
@@ -71,18 +72,20 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                                 @if(!empty($entreprises))
-                                    <tr>
+                                    <tr class="text-center text-uppercase">
                                         <th>Numéro</th>
                                         <th>Dénomination</th>
                                         <th>Adresse</th>
                                         <th>Téléphone</th>
+                                        <th>Actions</th>
                                     </tr>
                                     @foreach($entreprises as $entreprise)
-                                        <tr>
+                                        <tr class="text-center modifiable">
                                             <td>{{ $entreprise->numero }}</td>
                                             <td>{{ $entreprise->denomination }}</td>
                                             <td>{{ $entreprise->adresse }}</td>
                                             <td>{{ $entreprise->telephone }}</td>
+                                            <td><a class="update" href="{{url('update')}}" data-id="{{$entreprise->id}}">Modifier</a> | <a class="delete" href="{{url('delete')}}" data-id="{{$entreprise->id}}">Supprimer</a></td>
                                         </tr>
                                     @endforeach
                                 @else
@@ -94,10 +97,8 @@
                 </div>
             </div>
         </div>
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>
 

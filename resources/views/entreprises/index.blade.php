@@ -81,10 +81,10 @@
                                     </tr>
                                     @foreach($entreprises as $entreprise)
                                         <tr class="text-center modifiable">
-                                            <td>{{ $entreprise->numero }}</td>
-                                            <td>{{ $entreprise->denomination }}</td>
-                                            <td>{{ $entreprise->adresse }}</td>
-                                            <td>{{ $entreprise->telephone }}</td>
+                                            <td class="numero">{{ $entreprise->numero }}</td>
+                                            <td class="denomination">{{ $entreprise->denomination }}</td>
+                                            <td class="adresse">{{ $entreprise->adresse }}</td>
+                                            <td class="telephone">{{ $entreprise->telephone }}</td>
                                             <td><a class="update" href="{{url('update')}}" data-id="{{$entreprise->id}}">Modifier</a> | <a class="delete" href="{{url('delete')}}" data-id="{{$entreprise->id}}">Supprimer</a></td>
                                         </tr>
                                     @endforeach

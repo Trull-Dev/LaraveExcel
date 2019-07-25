@@ -89,7 +89,19 @@ class EntrepriseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->ajax()) {
+            $data = array(
+                'numero' => $request->numero,
+                'denomination' => $request->denomination,
+                'adresse' => $request->adresse,
+                'telephone' => $request->telephone,
+            );
+            Entreprise::find($id)->update($data);
+            return response()->json([
+                'success' => 'Modification réussie',
+                'valeur' => 1
+            ]);
+        }
     }
 
     /**

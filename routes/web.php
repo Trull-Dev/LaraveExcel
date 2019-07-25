@@ -16,3 +16,6 @@ Route::get('/', 'EntrepriseController@index');
 
 //EXPORT
 Route::get('export', 'EntrepriseController@export')->name('export');
+
+//IMPORT
+Route::post('import', 'EntrepriseController@import')->name('import');

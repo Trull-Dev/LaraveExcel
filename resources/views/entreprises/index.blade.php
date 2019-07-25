@@ -36,7 +36,7 @@
                     <strong>{{ $message }}</strong>
                 </div>
             @endif
-            <form method="post" enctype="multipart/form-data" action="{{ url('/import') }}" class="row">
+            <form method="post" enctype="multipart/form-data" action="{{ url('import') }}" class="row">
                 {{ csrf_field() }}
                 <div class="form-group m-auto">
                     <div class="d-inline-flex align-items-baseline">
@@ -44,7 +44,7 @@
                                 <label>Choississez un fichier excel à uploader</label>
                             </div>
                             <div class="ml-5 mr-5">
-                                <input type="file" name="select_file" />
+                                <input type="file" name="fichier" />
                             </div>
                             <div>
                                 <input type="submit" name="importer" class="btn btn-primary" value="Importer">
@@ -94,6 +94,10 @@
                 </div>
             </div>
         </div>
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
     </body>
 </html>
 

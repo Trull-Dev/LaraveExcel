@@ -17,13 +17,24 @@ class EntrepriseController extends Controller
      */
     public function index()
     {
-        $entreprises = Entreprise::all()->sortBy('created_at');
+        $entreprises = Entreprise::all()->sortBy('numero');
         return view('entreprises.index', compact('entreprises'));
     }
 
     public function export()
     {
         return Excel::download(new EntreprisesExport, 'entreprises.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $this->validate($request, [
+            'fichier'  => 'required|mimes:xls,xlsx'
+        ]);
+
+        Excel::import(new EntreprisesImport, $request->file('fichier'));
+
+        return redirect('/')->with('success', 'Importation réussie!');
     }
 
     /**
